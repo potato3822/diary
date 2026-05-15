@@ -41,24 +41,10 @@
   const statusDiv = document.getElementById('publish-status');
   const tokenSection = document.getElementById('token-section');
 
-  let clickCount = 0;
-  let clickTimer = null;
-
   if (siteTitle) {
-    siteTitle.addEventListener('click', function(e) {
-      clickCount++;
-      if (clickCount === 1) {
-        clickTimer = setTimeout(function() {
-          clickCount = 0;
-        }, 400);
-      } else if (clickCount === 2) {
-        clearTimeout(clickTimer);
-        clickCount = 0;
-        if (newBtn) {
-          newBtn.style.display = newBtn.style.display === 'none' ? 'inline' : 'none';
-        }
-        e.preventDefault();
-      }
+    siteTitle.addEventListener('dblclick', function(e) {
+      e.preventDefault();
+      if (newBtn) newBtn.style.display = newBtn.style.display === 'none' ? 'inline' : 'none';
     });
   }
 
