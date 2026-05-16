@@ -43,8 +43,10 @@
 
   if (siteTitle && newBtn) {
     siteTitle.addEventListener('click', function(e) {
-      e.preventDefault();
-      newBtn.style.display = newBtn.style.display === 'none' ? 'inline' : 'none';
+      if (newBtn.style.display === 'none') {
+        e.preventDefault();
+        newBtn.style.display = 'inline';
+      }
     });
   }
 
