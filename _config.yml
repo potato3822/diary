@@ -27,6 +27,9 @@ theme: minima
 plugins:
   - jekyll-feed
   - jekyll-seo-tag
+
+feed:
+  posts_limit: 2000
 #
 # Uncomment the following setting if you wish to disable deprecation warnings
 #   from newer versions of sass converter. Adapt as required.
