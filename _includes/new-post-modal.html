@@ -2,7 +2,7 @@
   <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);background:#fff;padding:20px;border-radius:8px;width:90%;max-width:600px;max-height:80vh;overflow:auto;">
     <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:15px;">
       <h3 style="margin:0;">New Post</h3>
-      <span id="close-modal" style="cursor:pointer;font-size:24px;">&times;</span>
+      <button type="button" id="close-modal" style="padding:6px 12px;background:#fff;border:1px solid #ccc;border-radius:4px;cursor:pointer;">关闭</button>
     </div>
     <div id="token-section" style="margin-bottom:15px;">
       <label>GitHub Token:</label>
@@ -59,8 +59,6 @@
       } else {
         tokenSection.style.display = 'block';
       }
-      titleInput.value = '';
-      contentInput.value = '';
       statusDiv.textContent = '';
       modal.style.display = 'block';
     });
@@ -71,12 +69,6 @@
       modal.style.display = 'none';
     });
   }
-
-  modal.addEventListener('click', function(e) {
-    if (e.target === modal) {
-      modal.style.display = 'none';
-    }
-  });
 
   if (publishBtn) {
     publishBtn.addEventListener('click', async function() {
@@ -131,9 +123,6 @@ ${content}`;
         if (response.ok) {
           statusDiv.textContent = '发布成功！页面将在几分钟后更新。';
           statusDiv.style.color = 'green';
-          setTimeout(() => {
-            modal.style.display = 'none';
-          }, 2000);
         } else {
           const err = await response.json();
           statusDiv.textContent = `发布失败: ${err.message}`;
