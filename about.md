@@ -4,4 +4,4 @@ title: About
 permalink: /about/
 ---
 
-一块自留地
+君子坦荡荡，小人长戚戚
